@@ -1,7 +1,12 @@
 const routes = (app) =>{
   app.route('/contact')
-  .get((req,res)=>{
-    res.send("GET works well!");
+  .get((req,res,next)=>{
+    //middleware
+    console.log(`request from: ${req.originalUrl}`);
+    console.log(`request type: ${req.method}`);
+    next();
+  },(req,res)=>{
+    res.send('GET works well!');
   })
 
   .post((req,res)=>{
