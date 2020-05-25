@@ -14,3 +14,11 @@ export const addNewContact = (req, res) => {
     res.json(contact);
   });
 };
+
+export const showAllContacts = (req,res)=>{
+  Contact.find()
+  .then(result=>{
+    res.json(result);
+  })
+  .catch(err => console.log(err))
+}
