@@ -32,7 +32,7 @@ export const showContactById = (req, res) => {
 };
 
 export const updateContactById = (req,res)=>{
-  Contact.findByIdAndUpdate(req.params.contactId,req.body)
+  Contact.findByIdAndUpdate(req.params.contactId,req.body,{new:true})
   .then(contact=>{
     if(!contact){
       res.status(404).json({error:"user not found!"})
