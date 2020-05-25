@@ -30,3 +30,14 @@ export const showContactById = (req, res) => {
     res.json(contact);
   }).catch(err => res.status(400).send(err))
 };
+
+export const updateContactById = (req,res)=>{
+  Contact.findByIdAndUpdate(req.params.contactId,req.body)
+  .then(contact=>{
+    if(!contact){
+      res.status(404).json({error:"user not found!"})
+    }
+    res.json(contact);
+  })
+  .catch(err => res.status(400).json(err) );
+}
