@@ -3,7 +3,7 @@ import ContactSchema from '../models/crmModel';
 
 const Contact = mongoose.model('Contact',ContactSchema);
 
-const addNewContact = (req, res) => {
+export const addNewContact = (req, res) => {
 
   const newContact = new Contact(req.body);
 
@@ -14,5 +14,3 @@ const addNewContact = (req, res) => {
     res.json(contact);
   });
 };
-
-export default addNewContact;

@@ -1,4 +1,4 @@
-import addNewContact from '../controllers/crmController';
+import {addNewContact} from '../controllers/crmController';
 
 const routes = (app) =>{
   app.route('/contact')
