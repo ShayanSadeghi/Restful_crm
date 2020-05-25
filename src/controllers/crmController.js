@@ -40,4 +40,15 @@ export const updateContactById = (req,res)=>{
     res.json(contact);
   })
   .catch(err => res.status(400).json(err) );
+};
+
+export const deleteContactById = (req,res)=>{
+  // There is a problem: if user doesn't exist, it send succesfull response
+  Contact.findOneAndRemove({_id:req.params.contactId},(err,contact)=>{
+    if(err){
+      return res.send(err);
+    }
+    res.json({message:"successfully deleted!"});
+
+  })
 }
